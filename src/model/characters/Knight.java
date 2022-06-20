@@ -3,8 +3,8 @@ package model.characters;
 public class Knight implements Character {
 
     private String name;
-    private long healt = 75;
-    private long mana = 25;
+    private long healt = 110;
+    private long mana = 4;
     private long damage;
     private long gold;
 
@@ -56,12 +56,12 @@ public class Knight implements Character {
 
     @Override
     public long doDefend() {
-        return Math.round(Math.random() * (10 - 3) + 3);
+        return Math.round(Math.random() * (10 - 1) + 1);
     }
 
     @Override
     public void doSpecialAbility() {
-
+        long dmg = setDamageOutput();
     }
 
     @Override
