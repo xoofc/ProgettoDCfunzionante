@@ -1,10 +1,10 @@
-package Run;
+package run;
 
-import InGameInteractions.CombatLogic;
-import Model.Characters.Character;
-import Model.Characters.Knight;
-import Model.Enemies.Enemy;
-import Model.Enemies.Skeleton;
+import inGameInteractions.CombatLogic;
+import model.characters.Character;
+import model.characters.Knight;
+import model.enemies.Enemy;
+import model.enemies.Skeleton;
 
 import java.util.Scanner;
 

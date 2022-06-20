@@ -1,4 +1,4 @@
-package Model.Characters;
+package model.characters;
 
 public interface Character {
 

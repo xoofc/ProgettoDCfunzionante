@@ -1,4 +1,4 @@
-package Model.Rooms;
+package model.rooms;
 
 import java.util.ArrayList;
 import java.util.Collection;

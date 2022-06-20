@@ -1,6 +1,4 @@
-package Model.Characters;
-
-import Model.Enemies.Enemy;
+package model.characters;
 
 public class Knight implements Character {
 

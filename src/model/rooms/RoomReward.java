@@ -1,6 +1,6 @@
-package Model.Rooms;
+package model.rooms;
 
-import Model.Characters.Character;
+import model.characters.Character;
 
 public class RoomReward {
 

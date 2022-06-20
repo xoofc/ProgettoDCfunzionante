@@ -1,4 +1,4 @@
-package Model.Enemies;
+package model.enemies;
 
 
 public interface Enemy {

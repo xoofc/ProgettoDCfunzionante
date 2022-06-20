@@ -1,4 +1,4 @@
-package Model.Enemies;
+package model.enemies;
 
 public class Skeleton implements Enemy{
 

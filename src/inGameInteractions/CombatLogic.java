@@ -1,7 +1,7 @@
-package InGameInteractions;
+package inGameInteractions;
 
-import Model.Characters.Character;
-import Model.Enemies.Enemy;
+import model.characters.Character;
+import model.enemies.Enemy;
 
 public class CombatLogic {
 
