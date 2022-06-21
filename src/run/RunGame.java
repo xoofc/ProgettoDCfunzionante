@@ -4,10 +4,14 @@ import inGameInteractions.CombatLogic;
 import model.characters.Character;
 import model.characters.Knight;
 import model.enemies.Enemy;
+import model.enemies.Mugger;
 import model.enemies.Skeleton;
+import model.enemies.Slime;
+import model.rooms.Dungeon;
 import model.rooms.Room;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class RunGame {
