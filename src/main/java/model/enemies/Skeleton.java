@@ -6,6 +6,11 @@ public class Skeleton extends Enemy{
     private long healt = 15;
     private long damage;
 
+    public Skeleton() {
+        livelMin = 1;
+        livelMax = 2;
+    }
+
     /*public Skeleton(){
         Enemy enemy = new Skeleton(name, 15);
     }

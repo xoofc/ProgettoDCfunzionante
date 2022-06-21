@@ -2,6 +2,9 @@ package model.rooms;
 
 import model.characters.Character;
 import model.enemies.Enemy;
+import model.enemies.Mugger;
+import model.enemies.Skeleton;
+import model.enemies.Slime;
 
 import java.util.*;
 
@@ -11,6 +14,20 @@ public class Dungeon {
     Collection<Room> roomList = new ArrayList<>();
 
     ArrayList<Enemy> floorEnemies =new ArrayList<>();
+
+    public ArrayList<Enemy> generateEnemiesList(int livelloPiano){
+        ArrayList<Enemy>enemies=new ArrayList<>();
+        Enemy skeleton=new Skeleton();
+        if(skeleton.livelMin<=livelloPiano&&skeleton.livelMax>=livelloPiano)
+            enemies.add(skeleton);
+        Enemy slime=new Slime();
+        if(slime.livelMin<=livelloPiano&&slime.livelMax>=livelloPiano)
+            enemies.add(slime);
+        Enemy mugger=new Mugger();
+        if(mugger.livelMin<=livelloPiano&&mugger.livelMax>=livelloPiano)
+            enemies.add(mugger);
+        return enemies;
+    }
 
     public Room generateRoom(Character character, ArrayList<Enemy> floorEnemies){
         Random random =new Random();

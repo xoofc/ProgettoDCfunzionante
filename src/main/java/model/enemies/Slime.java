@@ -6,6 +6,11 @@ public class Slime extends Enemy{
     private long healt = 40;
     private long damage;
 
+    public Slime() {
+        livelMin = 1;
+        livelMax = 4;
+    }
+
    /* public Slime(){
         Enemy enemy = new Slime(name, 40);
     }

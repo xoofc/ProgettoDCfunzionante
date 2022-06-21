@@ -6,6 +6,11 @@ public class Mugger extends Enemy{
     private long healt = 30;
     private long damage;
 
+    public Mugger() {
+        livelMin = 1;
+        livelMax = 1;
+    }
+
    /* public Mugger(){
         Enemy enemy = new Mugger(name, 30);
     }

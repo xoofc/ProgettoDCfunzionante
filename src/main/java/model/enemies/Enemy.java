@@ -2,6 +2,10 @@ package model.enemies;
 
 
 public abstract class  Enemy implements Cloneable{
+
+    public int livelMin;
+    public int livelMax;
+
     abstract public boolean isAlive();
     abstract public long setDamageOutput();
     abstract public String getName();
