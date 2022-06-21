@@ -1,14 +1,24 @@
 package model.enemies;
 
-public class Mugger implements Enemy{
+public class Mugger extends Enemy{
 
-    private String name = "Skeleton";
+    private String name = "Mugger";
     private long healt = 30;
     private long damage;
+
+   /* public Mugger(){
+        Enemy enemy = new Mugger(name, 30);
+    }
+
+    public Mugger(String name, long healt){
+        this.name = name;
+        this.healt = healt;
+    }*/
 
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -73,4 +83,6 @@ public class Mugger implements Enemy{
         }
         return false;
     }
+
+
 }

@@ -14,11 +14,11 @@ public class Dungeon {
 
     public Room generateRoom(Character character, ArrayList<Enemy> floorEnemies){
         Random random =new Random();
-        Collection <Enemy> enemies=new ArrayList<>();
+        ArrayList <Enemy> enemies=new ArrayList<>();
         int nEnemies= random.nextInt(3)+1;
         for (int i=0;i<nEnemies;i++){
             int ranNemico = random.nextInt(floorEnemies.size());
-            enemies.add(floorEnemies.get(ranNemico));
+            enemies.add(floorEnemies.get(ranNemico).clone());
         }
         Room room=new Room(character,enemies);
         return room;

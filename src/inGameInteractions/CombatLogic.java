@@ -3,9 +3,13 @@ package inGameInteractions;
 import model.characters.Character;
 import model.enemies.Enemy;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class CombatLogic {
 
     public void doAttack(Character character, Enemy enemy) {
+
         long playerDmg = character.setDamageOutput();
         long enemyDmg = enemy.setDamageOutput();
         if (playerDmg >= enemy.getHealt()) {
@@ -26,6 +30,21 @@ public class CombatLogic {
             System.out.println(enemy.getName() + " attacked " + character.getName() + " for " + enemyDmg + " points of damage");
             character.setHealt(character.getHealt() - enemyDmg);
             System.out.println(character.getName() + " healt is now " + character.getHealt() + "HP");
+        }
+    }
+
+    public void enemyDoAttack(Enemy enemy, Character character){
+        long enemyDmg = enemy.setDamageOutput();
+
+        if (enemyDmg >= character.getHealt()) {
+            System.out.println(enemy.getName() + " attacked " + character.getName() + " for " + enemyDmg + " points of damage");
+            System.out.println(enemy.getName() + " has defeated you . . .");
+            character.setHealt(0);
+
+        } else {
+        System.out.println(enemy.getName() + " attacked " + character.getName() + " for " + enemyDmg + " points of damage");
+        character.setHealt(character.getHealt() - enemyDmg);
+        System.out.println(character.getName() + " healt is now " + character.getHealt() + "HP");
         }
     }
 

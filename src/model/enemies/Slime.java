@@ -1,10 +1,19 @@
 package model.enemies;
 
-public class Slime implements Enemy{
+public class Slime extends Enemy{
 
     private String name = "Slime";
     private long healt = 40;
     private long damage;
+
+   /* public Slime(){
+        Enemy enemy = new Slime(name, 40);
+    }
+
+    public Slime(String name, long healt){
+        this.name = name;
+        this.healt = healt;
+    }*/
 
     public String getName() {
         return name;

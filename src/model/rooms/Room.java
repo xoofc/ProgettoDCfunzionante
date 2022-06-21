@@ -11,7 +11,7 @@ public class Room {
     private Character character;
     private Enemy enemy;
 
-    private Collection<Enemy> enemies=new ArrayList<>();
+    private ArrayList<Enemy> enemies=new ArrayList<>();
 
     public Character getCharacter() {
         return character;
@@ -29,11 +29,11 @@ public class Room {
         this.enemy = enemy;
     }
 
-    public Collection<Enemy> getEnemies() {
+    public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
 
-    public void setEnemies(Collection<Enemy> enemies) {
+    public void setEnemies(ArrayList<Enemy> enemies) {
         this.enemies = enemies;
     }
 
@@ -44,7 +44,7 @@ public class Room {
     }
 
 
-    public Room(Character character,Collection<Enemy> enemies){
+    public Room(Character character,ArrayList<Enemy> enemies){
         this.character=character;
         this.enemies=enemies;
     }

@@ -22,6 +22,7 @@ public class RunGame {
         CombatLogic gameAction = new CombatLogic();
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
+        Dungeon dungeon = new Dungeon();
 
         while (!exit) {
 
@@ -47,24 +48,52 @@ public class RunGame {
                     System.out.println("Name your character");
                     String playerName = scanner.next();
                     player.setName(playerName);
-                    System.out.println("The developer decided to make you fight Skelly");
-                    enemy = new Skeleton();
+                    System.out.println("The developer decided to make you fight MORE Skellys");
+
+                    ArrayList<Enemy> allEnemies = new ArrayList<>();
+                    allEnemies.add(new Skeleton());
+                    allEnemies.add(new Slime());
+                    allEnemies.add(new Mugger());
                     boolean runAway = false;
+                    Room room = dungeon.generateRoom(player, allEnemies);
+
                     while (!runAway) {
-                        if (!player.isAlive()) {
+
+                        if (room.getEnemies().isEmpty()) {
+                            System.out.println("You killed everyone in the room and moved on to the next one");
+                            room = dungeon.generateRoom(player, allEnemies);
+                        } else if (!room.getCharacter().isAlive()) {
                             System.out.println("The enemies drag your lifeless body out of the dungeon . . .");
                             runAway = true;
-
-                        } else if (!enemy.isAlive()) {
-                            System.out.println("You killed " + enemy.getName() + " and moved on to the next room");
-                            runAway = true;
-                        } else {
-                            System.out.println("what are you gonna do: 0 run away, 1 attack, 2 defend");
+                            exit = true;
+                            break;
                         }
+                            System.out.println("what are you gonna do: 0 run away, 1 attack, 2 defend");
+
                         switch (scanner.next()) {
 
                             case "1":
-                                gameAction.doAttack(player, enemy);
+
+                                System.out.println("choose the target of your attack: ");
+
+                                for (int i = 0; i < room.getEnemies().size(); i++) {
+                                    System.out.println(i + 1 + " " + room.getEnemies().get(i).getName() + " " + room.getEnemies().get(i).getHealt() + "HP");
+                                }
+
+                                int scelta = scanner.nextInt();
+                                Enemy nemicoScelto = room.getEnemies().get(scelta - 1);
+                                gameAction.doAttack(room.getCharacter(), nemicoScelto);
+                                for (Enemy element : room.getEnemies()
+                                ) {
+                                    if (element != nemicoScelto) {
+                                        gameAction.enemyDoAttack(element, room.getCharacter());
+                                    }
+                                }
+                                for (int i = 0; i < room.getEnemies().size(); i++) {
+                                    if (!room.getEnemies().get(i).isAlive()) {
+                                        room.getEnemies().remove(i);
+                                    }
+                                }
                                 break;
 
                             case "2":

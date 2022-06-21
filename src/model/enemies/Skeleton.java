@@ -1,11 +1,19 @@
 package model.enemies;
 
-public class Skeleton implements Enemy{
+public class Skeleton extends Enemy{
 
     private String name = "Skeleton";
     private long healt = 15;
     private long damage;
 
+    /*public Skeleton(){
+        Enemy enemy = new Skeleton(name, 15);
+    }
+
+    public Skeleton(String name, long healt){
+        this.name = name;
+        this.healt = healt;
+    }*/
     public String getName() {
         return name;
     }
@@ -67,4 +75,5 @@ public class Skeleton implements Enemy{
         }
         return false;
     }
+
 }
