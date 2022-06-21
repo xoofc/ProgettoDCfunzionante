@@ -26,7 +26,6 @@ public class CombatLogic {
             System.out.println(enemy.getName() + " attacked " + character.getName() + " for " + enemyDmg + " points of damage");
             character.setHealt(character.getHealt() - enemyDmg);
             System.out.println(character.getName() + " healt is now " + character.getHealt() + "HP");
-
         }
     }
 
