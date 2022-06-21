@@ -5,13 +5,16 @@ import model.characters.Character;
 import model.characters.Knight;
 import model.enemies.Enemy;
 import model.enemies.Skeleton;
+import model.rooms.Room;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RunGame {
     public static void main(String[] args) {
+
         Character player = null;
-        Enemy enemy =  null;
+        Enemy enemy = null;
         CombatLogic gameAction = new CombatLogic();
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
@@ -43,31 +46,32 @@ public class RunGame {
                     System.out.println("The developer decided to make you fight Skelly");
                     enemy = new Skeleton();
                     boolean runAway = false;
-                    while (!runAway){
-                        if (!player.isAlive()){
+                    while (!runAway) {
+                        if (!player.isAlive()) {
                             System.out.println("The enemies drag your lifeless body out of the dungeon . . .");
                             runAway = true;
 
-                        } else if(!enemy.isAlive()){
+                        } else if (!enemy.isAlive()) {
                             System.out.println("You killed " + enemy.getName() + " and moved on to the next room");
                             runAway = true;
                         } else {
                             System.out.println("what are you gonna do: 0 run away, 1 attack, 2 defend");
                         }
-                    switch (scanner.next()) {
+                        switch (scanner.next()) {
 
-                        case "1":
-                            gameAction.doAttack(player, enemy);
-                            break;
+                            case "1":
+                                gameAction.doAttack(player, enemy);
+                                break;
 
-                        case "2":
-                            gameAction.doDefendPlayer(player, enemy);
-                            break;
+                            case "2":
+                                gameAction.doDefendPlayer(player, enemy);
+                                break;
 
-                        case "0":
-                            runAway = true;
-                            break;
-                    }}
+                            case "0":
+                                runAway = true;
+                                break;
+                        }
+                    }
 
                     break;
 
@@ -76,6 +80,6 @@ public class RunGame {
                     break;
             }
         }
-      }
     }
+}
 
