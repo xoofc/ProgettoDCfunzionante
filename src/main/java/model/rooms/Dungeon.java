@@ -13,20 +13,26 @@ public class Dungeon {
 
     Collection<Room> roomList = new ArrayList<>();
 
-    ArrayList<Enemy> floorEnemies =new ArrayList<>();
+    ArrayList<Enemy> enemies =new ArrayList<>();
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void allEnemies() {
+        enemies.add(new Skeleton());
+        enemies.add(new Slime());
+        enemies.add(new Mugger());
+    }
 
     public ArrayList<Enemy> generateEnemiesList(int livelloPiano){
-        ArrayList<Enemy>enemies=new ArrayList<>();
-        Enemy skeleton=new Skeleton();
-        if(skeleton.livelMin<=livelloPiano&&skeleton.livelMax>=livelloPiano)
-            enemies.add(skeleton);
-        Enemy slime=new Slime();
-        if(slime.livelMin<=livelloPiano&&slime.livelMax>=livelloPiano)
-            enemies.add(slime);
-        Enemy mugger=new Mugger();
-        if(mugger.livelMin<=livelloPiano&&mugger.livelMax>=livelloPiano)
-            enemies.add(mugger);
-        return enemies;
+        ArrayList<Enemy>floorEnemies=new ArrayList<>();
+        allEnemies();
+        for (Enemy enemy:enemies ) {
+            if(enemy.livelMin<=livelloPiano&&enemy.livelMax>=livelloPiano)
+                floorEnemies.add(enemy);
+        }
+        return floorEnemies;
     }
 
     public Room generateRoom(Character character, ArrayList<Enemy> floorEnemies){
@@ -40,4 +46,6 @@ public class Dungeon {
         Room room=new Room(character,enemies);
         return room;
     }
+
+
 }

@@ -9,7 +9,9 @@ import java.util.Collection;
 public class Room {
 
     private Character character;
-    private Enemy enemy;
+//    private Enemy enemy;
+
+    private int nRoom=0;
 
     private ArrayList<Enemy> enemies=new ArrayList<>();
 
@@ -21,13 +23,22 @@ public class Room {
         this.character = character;
     }
 
-    public Enemy getEnemy() {
-        return enemy;
+//    public Enemy getEnemy() {
+//        return enemy;
+//    }
+
+//    public void setEnemy(Enemy enemy) {
+//        this.enemy = enemy;
+//    }
+
+
+    public int getNRoom() {
+        return nRoom;
+    }
+    public void setNRoom(int nRoom){
+        this.nRoom=nRoom;
     }
 
-    public void setEnemy(Enemy enemy) {
-        this.enemy = enemy;
-    }
 
     public ArrayList<Enemy> getEnemies() {
         return enemies;
@@ -38,19 +49,20 @@ public class Room {
     }
 
     public Room(){}
-    public Room(Character character, Enemy enemy){
-        this.character = character;
-        this.enemy = enemy;
-    }
+//    public Room(Character character, Enemy enemy){
+//        this.character = character;
+//        this.enemy = enemy;
+//    }
 
 
     public Room(Character character,ArrayList<Enemy> enemies){
         this.character=character;
         this.enemies=enemies;
+        nRoom++;
     }
 
-    public boolean isCompleted(){
-        return !enemy.isAlive();
-    }
+//    public boolean isCompleted(){
+//        return !enemy.isAlive();
+//    }
 
 }
