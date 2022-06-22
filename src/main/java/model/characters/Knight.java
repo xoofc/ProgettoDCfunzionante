@@ -8,6 +8,16 @@ public class Knight implements Character {
     private long damage;
     private long gold;
 
+    private boolean hasStatus = false;
+
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
     public long getGold() {
         return gold;
     }

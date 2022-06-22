@@ -3,10 +3,7 @@ package run;
 import inGameInteractions.CombatLogic;
 import model.characters.Character;
 import model.characters.Knight;
-import model.enemies.Enemy;
-import model.enemies.Mugger;
-import model.enemies.Skeleton;
-import model.enemies.Slime;
+import model.enemies.*;
 import model.rooms.Dungeon;
 import model.rooms.Room;
 
@@ -23,6 +20,7 @@ public class RunGame {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         Dungeon dungeon = new Dungeon();
+        int nTurno = 1;
 
         while (!exit) {
 
@@ -48,18 +46,22 @@ public class RunGame {
                     System.out.println("Name your character");
                     String playerName = scanner.next();
                     player.setName(playerName);
-                    System.out.println("The developer decided to make you fight MORE Skellys");
 
                     ArrayList<Enemy> allEnemies = new ArrayList<>();
                     allEnemies.add(new Skeleton());
-                    allEnemies.add(new Slime());
-                    allEnemies.add(new Mugger());
+                   // allEnemies.add(new Slime());
+                   // allEnemies.add(new Mugger());
+                    allEnemies.add(new Witch());
                     boolean runAway = false;
                     Room room = dungeon.generateRoom(player, allEnemies);
 
                     while (!runAway) {
 
                         if (room.getEnemies().isEmpty()) {
+                            if (player.getHasStatus()){
+                                player.setHasStatus(false);
+                                gameAction.setDurataStatus(0);
+                            }
                             System.out.println("You killed everyone in the room and moved on to the next one");
                             room = dungeon.generateRoom(player, allEnemies);
                         } else if (!room.getCharacter().isAlive()) {
@@ -83,6 +85,17 @@ public class RunGame {
                                 int scelta = scanner.nextInt();
                                 Enemy nemicoScelto = room.getEnemies().get(scelta - 1);
                                 gameAction.doAttack(room.getCharacter(), nemicoScelto);
+
+                                if (player.getHasStatus()){
+                                       if (gameAction.getDurataStatus() == 0){
+                                           player.setHasStatus(false);
+                                       }else {
+                                           gameAction.doDot(player);
+                                           gameAction.setDurataStatus(gameAction.getDurataStatus() - 1);
+                                           System.out.println( player.getName() + " received 5 points of damage and now has " + player.getHealt() + "HP");
+                                       }
+                                }
+
                                 for (Enemy element : room.getEnemies()
                                 ) {
                                     if (element != nemicoScelto) {
@@ -96,6 +109,7 @@ public class RunGame {
                                 }
                                 break;
 
+                                //da togliere prossimamente (rip defend</3)
                             case "2":
                                 gameAction.doDefendPlayer(player, enemy);
                                 break;

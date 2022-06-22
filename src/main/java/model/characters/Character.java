@@ -2,6 +2,8 @@ package model.characters;
 
 public interface Character {
 
+     boolean getHasStatus();
+     void setHasStatus(boolean hasStatus);
     boolean isAlive();
     String getName();
     void setName(String name);

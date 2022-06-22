@@ -2,16 +2,37 @@ package inGameInteractions;
 
 import model.characters.Character;
 import model.enemies.Enemy;
+import model.enemies.Witch;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class CombatLogic {
 
-    public void doAttack(Character character, Enemy enemy) {
+    private int durataStatus = 0;
 
+    public final int DOT_DMG = 5;
+
+    public int getDurataStatus() {
+        return durataStatus;
+    }
+
+    public void setDurataStatus(int durataStatus) {
+        this.durataStatus = durataStatus;
+    }
+
+    public void doAttack(Character character, Enemy enemy) {
         long playerDmg = character.setDamageOutput();
         long enemyDmg = enemy.setDamageOutput();
+
+        if (enemy instanceof Witch)
+        {
+            if (!character.getHasStatus()) {
+                applyStatus(character, 2);
+                System.out.println(enemy.getName() + " has applyied a dot of " + DOT_DMG + " for " + durataStatus + ", good luck.");
+            }
+        }
+
         if (playerDmg >= enemy.getHealt()) {
             System.out.println(character.getName() + " attacked " + enemy.getName() + " for " + playerDmg + " points of damage");
             System.out.println("You've defeated " + enemy.getName() + "!");
@@ -74,6 +95,17 @@ public class CombatLogic {
             System.out.println(character.getName() + " lost " + (enemyDmg - shield) + "HP and now has " + character.getHealt() + "HP");
         }
     }
+
+    public void doDot(Character character){
+        character.setHealt(character.getHealt() - DOT_DMG);
+    }
+
+    public void applyStatus(Character character, int durata){
+        durataStatus = durata;
+        character.setHasStatus(true);
+    }
+
+
 }
 
 /*Se muori si ricomincia dal livello 1

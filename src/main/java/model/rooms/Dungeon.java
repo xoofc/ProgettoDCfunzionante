@@ -1,10 +1,7 @@
 package model.rooms;
 
 import model.characters.Character;
-import model.enemies.Enemy;
-import model.enemies.Mugger;
-import model.enemies.Skeleton;
-import model.enemies.Slime;
+import model.enemies.*;
 
 import java.util.*;
 
@@ -23,6 +20,7 @@ public class Dungeon {
         enemies.add(new Skeleton());
         enemies.add(new Slime());
         enemies.add(new Mugger());
+        enemies.add(new Witch());
     }
 
     public ArrayList<Enemy> generateEnemiesList(int livelloPiano){

@@ -4,45 +4,39 @@ public class Witch extends Enemy {
 
     private String name = "Witch";
 
-    private long healt = 25;
+    private long healt = 7;
 
     private long damage;
 
-
-    @Override
-    public boolean isAlive() {
-        if (this.getHealt()>0) {
-            return true;
-        } else if (this.getHealt() <= 0) {
-            return false;
-        }
-        return false;
+    public Witch() {
+        livelMin = 1;
+        livelMax = 3;
     }
 
 
-    @Override
-    public long setDamageOutput() {
-        return Math.round(Math.random() * (8 - 4) + 4);
-    }
-
-    @Override
     public String getName() {
-        return null;
+        return name;
     }
 
-    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public long getHealt() {
-        return 0;
+        return healt;
     }
 
     @Override
     public void setHealt(long healt) {
-
+        this.healt = healt;
     }
 
-    @Override
+    public void setHealt(int healt) {
+        this.healt = healt;
+    }
+
     public long getDamage() {
-        return 0;
+        return damage;
     }
 
     @Override
@@ -50,19 +44,36 @@ public class Witch extends Enemy {
 
     }
 
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     @Override
     public void doAttack() {
 
     }
 
-    @Override
-    public long doDefend() {
+    @Override // la strega è già abbastanza rotta, non deve difendersi
+    public long doDefend(){
         return 0;
     }
 
     @Override
     public void doSpecialAbility() {
 
+    }
+
+    public long setDamageOutput() {
+        return Math.round(Math.random() * (3 - 1) + 1);
+    }
+
+    public boolean isAlive() {
+        if (this.getHealt()>0) {
+            return true;
+        } else if (this.getHealt() <= 0) {
+            return false;
+        }
+        return false;
     }
 
 }
