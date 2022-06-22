@@ -2,27 +2,22 @@ package model.rooms;
 
 public class Floor {
 
-    private int levelFloor=0;
+    public static int levelFloor;
+    public static int nRoom = 8;
 
     public Floor(){
         levelFloor=1;
-    }
-
-    public Floor(Room room){
-        levelControl(room);
     }
 
     public int getLevelFloor() {
         return levelFloor;
     }
 
-    public void setLevelFloor(int levelFloor) {
-        this.levelFloor = levelFloor;
-    }
 
-    public void levelControl(Room room){
-        if (room.getNRoom()%10==0){
-            levelFloor++;
+    //Implementare in rungame l'incremento di floor ogni 10 room
+    public void levelControl(){
+        if (nRoom%10==0){
+            System.out.println("YOU'VE REACHED THE BOSS");
         }
     }
 }

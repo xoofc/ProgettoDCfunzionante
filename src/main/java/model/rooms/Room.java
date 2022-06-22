@@ -2,6 +2,7 @@ package model.rooms;
 
 import model.characters.Character;
 import model.enemies.Enemy;
+import run.RunGame;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,8 +11,6 @@ public class Room {
 
     private Character character;
 //    private Enemy enemy;
-
-    private int nRoom=0;
 
     private ArrayList<Enemy> enemies=new ArrayList<>();
 
@@ -26,8 +25,7 @@ public class Room {
     public Room(Character character,ArrayList<Enemy> enemies){
         this.character=character;
         this.enemies=enemies;
-        new Floor(this);
-        nRoom++;
+        Floor.nRoom += 1;
     }
 
 //    public boolean isCompleted(){
@@ -51,12 +49,7 @@ public class Room {
 //    }
 
 
-    public int getNRoom() {
-        return nRoom;
-    }
-    public void setNRoom(int nRoom){
-        this.nRoom=nRoom;
-    }
+
 
 
     public ArrayList<Enemy> getEnemies() {
