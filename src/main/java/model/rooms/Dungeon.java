@@ -41,12 +41,13 @@ public class Dungeon {
         enemies.add(new Slime());
         enemies.add(new Mugger());
         enemies.add(new Witch());
-        enemies.add(new Goblin());
+        enemies.add(new SkeletonArcher());
         enemies.add(new Bugbear());
         enemies.add(new DrowArcher());
         enemies.add(new Ghour());
         enemies.add(new Goblin());
         enemies.add(new Hobgoblin());
+        enemies.add(new InfernalDog());
     }
 
     //Genera una lista di nemici del piano dove si trova il player
