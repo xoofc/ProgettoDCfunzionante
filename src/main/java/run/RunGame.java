@@ -3,6 +3,7 @@ package run;
 import inGameInteractions.CombatLogic;
 import model.characters.Character;
 import model.characters.Knight;
+import model.characters.Mage;
 import model.enemies.*;
 import model.rooms.Dungeon;
 import model.rooms.Room;
@@ -37,6 +38,10 @@ public class RunGame {
                     switch (scanner.next()) {
                         case "0":
                             player = new Knight();
+                            break;
+
+                        case "1":
+                            player = new Mage();
                             break;
 
                         default:

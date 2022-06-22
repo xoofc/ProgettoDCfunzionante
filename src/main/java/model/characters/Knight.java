@@ -5,7 +5,7 @@ import model.enemies.Enemy;
 public class Knight implements Character {
 
     private String name;
-    private long healt = 110;
+    private long healt = 150;
     private long mana = 3;
     private long damage;
     private long gold;
@@ -73,12 +73,12 @@ public class Knight implements Character {
 
     @Override
     public long setDamageOutput() {
-        return Math.round(Math.random() * (20 - 10) + 10);
+        return Math.round(Math.random() * (17 - 8) + 10);
     }
 
 
     @Override
-    public int doSpecialAbility(Enemy enemy) {
+    public int doSpecialAbility() {
         hasUsedSA = true;
         long timesHit = Math.round(Math.random()*3) + 2;
         int dmgAmount = 0;

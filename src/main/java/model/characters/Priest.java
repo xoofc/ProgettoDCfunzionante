@@ -3,8 +3,9 @@ package model.characters;
 import model.enemies.Enemy;
 
 public class Priest implements Character{
+    boolean doSpecialAbility;
     private String name;
-    private long healt = 85;
+    private long healt = 135;
     private long mana = 5;
     private long damage;
     private long gold;
@@ -81,7 +82,7 @@ public class Priest implements Character{
 
 
     @Override
-    public int doSpecialAbility(Enemy enemy) {
+    public int doSpecialAbility() {
         return 0;
     }
 

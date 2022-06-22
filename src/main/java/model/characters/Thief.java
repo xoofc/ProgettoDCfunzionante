@@ -4,7 +4,7 @@ import model.enemies.Enemy;
 
 public class Thief implements Character{
     private String name;
-    private long healt = 80;
+    private long healt = 95;
     private long mana = 4;
     private long damage;
     private long gold;
@@ -84,7 +84,7 @@ public class Thief implements Character{
     }
 
     @Override
-    public int doSpecialAbility(Enemy enemy) {
+    public int doSpecialAbility() {
         return 0;
     }
 
