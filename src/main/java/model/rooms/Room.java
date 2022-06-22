@@ -15,15 +15,34 @@ public class Room {
 
     private ArrayList<Enemy> enemies=new ArrayList<>();
 
+
+    public Room(){}
+
+//    public Room(Character character, Enemy enemy){
+//        this.character = character;
+//        this.enemy = enemy;
+//    }
+
+    public Room(Character character,ArrayList<Enemy> enemies){
+        this.character=character;
+        this.enemies=enemies;
+        new Floor(this);
+        nRoom++;
+    }
+
+//    public boolean isCompleted(){
+//        return !enemy.isAlive();
+//    }
+
     public Character getCharacter() {
         return character;
     }
-
     public void setCharacter(Character character) {
         this.character = character;
     }
 
-//    public Enemy getEnemy() {
+
+    //    public Enemy getEnemy() {
 //        return enemy;
 //    }
 
@@ -48,21 +67,5 @@ public class Room {
         this.enemies = enemies;
     }
 
-    public Room(){}
-//    public Room(Character character, Enemy enemy){
-//        this.character = character;
-//        this.enemy = enemy;
-//    }
-
-
-    public Room(Character character,ArrayList<Enemy> enemies){
-        this.character=character;
-        this.enemies=enemies;
-        nRoom++;
-    }
-
-//    public boolean isCompleted(){
-//        return !enemy.isAlive();
-//    }
 
 }
