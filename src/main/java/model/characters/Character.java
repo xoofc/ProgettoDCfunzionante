@@ -14,10 +14,8 @@ public interface Character {
     long getDamage();
     void setDamage(long damage);
     long setDamageOutput();
-    long doDefend();
     void doSpecialAbility();
     void useItem();
-    void doEscape();
     void setGold(long gold);
     long getGold();
 }

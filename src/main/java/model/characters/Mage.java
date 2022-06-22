@@ -65,10 +65,6 @@ public class Mage implements Character{
         return Math.round(Math.random() * (15 - 9) + 7);
     }
 
-    @Override
-    public long doDefend() {
-        return Math.round(Math.random() * (7 - 1) + 1);
-    }
 
     @Override
     public void doSpecialAbility() {
@@ -80,10 +76,6 @@ public class Mage implements Character{
 
     }
 
-    @Override
-    public void doEscape() {
-
-    }
 
 
     public boolean isAlive() {

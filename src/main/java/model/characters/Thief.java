@@ -63,10 +63,7 @@ public class Thief implements Character{
         return Math.round(Math.random() * (15 - 5) + 10);
     }
 
-    @Override  //non utilizzare, il thief non può difendersi ma usa dodge() per schivare
-    public long doDefend() {
-        return 0;
-    }
+
 
     public boolean dodge(){
         long dodge = Math.round(Math.random()*3);
@@ -84,10 +81,6 @@ public class Thief implements Character{
 
     }
 
-    @Override
-    public void doEscape() {
-
-    }
 
 
     public boolean isAlive() {

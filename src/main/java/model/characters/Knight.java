@@ -64,10 +64,6 @@ public class Knight implements Character {
         return Math.round(Math.random() * (20 - 10) + 10);
     }
 
-    @Override
-    public long doDefend() {
-        return Math.round(Math.random() * (10 - 1) + 1);
-    }
 
     @Override
     public void doSpecialAbility() {
@@ -79,10 +75,6 @@ public class Knight implements Character {
 
     }
 
-    @Override
-    public void doEscape() {
-
-    }
 
 
     public boolean isAlive() {

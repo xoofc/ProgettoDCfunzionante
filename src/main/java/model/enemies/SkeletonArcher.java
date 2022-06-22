@@ -1,11 +1,11 @@
 package model.enemies;
 
-public class SkeletonArcier extends Enemy{
-    private String name = "Skeleton Arcier";
+public class SkeletonArcher extends Enemy{
+    private String name = "Skeleton Archer";
     private long healt = 12;
     private long damage;
 
-    public SkeletonArcier() {
+    public SkeletonArcher() {
         livelMin = 1;
         livelMax = 2;
     }

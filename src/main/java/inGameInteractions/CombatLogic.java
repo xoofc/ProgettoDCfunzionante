@@ -29,7 +29,7 @@ public class CombatLogic {
         {
             if (!character.getHasStatus()) {
                 applyStatus(character, 2);
-                System.out.println(enemy.getName() + " has applyied a dot of " + DOT_DMG + " for " + durataStatus + ", good luck.");
+                System.out.println(enemy.getName() + " has applyied a dot of " + DOT_DMG + " points of damage for " + durataStatus + "turns, good luck.");
             }
         }
 
@@ -54,6 +54,7 @@ public class CombatLogic {
         }
     }
 
+
     public void enemyDoAttack(Enemy enemy, Character character){
         long enemyDmg = enemy.setDamageOutput();
 
@@ -69,33 +70,6 @@ public class CombatLogic {
         }
     }
 
-    public void doDefendPlayer(Character character, Enemy enemy){
-
-        long shield = character.doDefend();
-        long enemyDmg = enemy.setDamageOutput();
-        if (character.getHealt() - (enemyDmg - shield) <= 0){
-            System.out.println(enemy.getName() + " has defeated you . . .");
-            character.setHealt(0);
-        } else if (enemy.getHealt() - (shield - enemyDmg) <= 0){
-            System.out.println("You've defeated " + enemy.getName() + "!");
-            enemy.setHealt(0);
-        }
-       else if (enemyDmg < shield){
-            System.out.println(character.getName() + " defended for " + shield + " points of shield");
-            enemy.setHealt(enemy.getHealt() - (shield - enemyDmg));
-            System.out.println(enemy.getName() + " attacked for " + enemyDmg + " points of damage and lost " + (shield - enemyDmg) + "HP, it now has " + enemy.getHealt() + "HP");
-        } else if (enemyDmg == shield){
-            System.out.println(character.getName() + " defended for " + shield + " points of shield");
-            System.out.println(enemy.getName() + " attacked for " + enemyDmg + " points of damage");
-            System.out.println("Attack impeccably blocked!");
-        } else {
-            System.out.println(character.getName() + " defended for " + shield + " points of shield");
-            System.out.println(enemy.getName() + " attacked for " + enemyDmg + " points of damage");
-            character.setHealt(character.getHealt() - (enemyDmg - shield));
-            System.out.println(character.getName() + " lost " + (enemyDmg - shield) + "HP and now has " + character.getHealt() + "HP");
-        }
-    }
-
     public void doDot(Character character){
         character.setHealt(character.getHealt() - DOT_DMG);
     }
@@ -104,15 +78,4 @@ public class CombatLogic {
         durataStatus = durata;
         character.setHasStatus(true);
     }
-
-
 }
-
-/*Se muori si ricomincia dal livello 1
-* * primo piano shop prima del boss
-* item pool per ogni tipo di personaggio
-* oggetti consumabili e passivi
-* endless run
-* energia per turno
-* miniboss a scelta generati in stanze causali(item pool unica)
-* livello min-max a cui può stare ogni nemico (da usare in generateRoom)*/

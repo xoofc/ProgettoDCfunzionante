@@ -64,10 +64,7 @@ public class Priest implements Character{
         return Math.round(Math.random() * (13 - 7) + 7);
     }
 
-    @Override
-    public long doDefend() {
-        return Math.round(Math.random() * (8 - 1) + 1);
-    }
+
 
     @Override
     public void doSpecialAbility() {
@@ -79,10 +76,6 @@ public class Priest implements Character{
 
     }
 
-    @Override
-    public void doEscape() {
-
-    }
 
 
     public boolean isAlive() {

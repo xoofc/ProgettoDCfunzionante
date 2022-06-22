@@ -72,7 +72,7 @@ public class RunGame {
                             exit = true;
                             break;
                         }
-                            System.out.println("what are you gonna do: 0 run away, 1 attack, 2 defend");
+                            System.out.println("what are you gonna do: 0 run away, 1 attack");
 
                         switch (scanner.next()) {
 
@@ -111,13 +111,13 @@ public class RunGame {
                                 }
                                 break;
 
-                                //da togliere prossimamente (rip defend</3)
-                            case "2":
-                                gameAction.doDefendPlayer(player, enemy);
-                                break;
 
                             case "0":
                                 runAway = true;
+                                break;
+
+                            default:
+                                System.out.println("Choose a valid action you Dumb-Head . . .");
                                 break;
                         }
                     }
