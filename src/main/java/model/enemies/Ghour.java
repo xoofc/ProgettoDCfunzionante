@@ -1,23 +1,23 @@
 package model.enemies;
 
-public class SkeletonArcher extends Enemy{
-    private String name = "Skeleton Archer";
-    private long healt = 12;
+// I Ghours erano un tipo di demone creato dal signore dei demoni Baphomet all'interno
+// della sua Torre della Scienza.
+// Servirono come ambasciatori e consiglieri per i cultisti del Signore Cornuto sul Piano Materiale.
+// Dominando la maggior parte degli altri esseri, i ghour somigliavano a orchi
+// alti 20 piedi (6,1 metri) con molti tratti simili a minotauri, in particolare le enormi corna
+// che sporgevano dai loro crani. A coprire le loro corporature muscolose c'era
+// una pelle spessa e pelosa, così come altre caratteristiche bestiali.
+// In aggiunta alla loro immagine simile a un minotauro c'erano i loro zoccoli al posto dei piedi.
+
+public class Ghour extends Enemy {
+    private String name = "Ghour";
+    private long healt = 40;
     private long damage;
 
-    public SkeletonArcher() {
-        livelMin = 1;
-        livelMax = 1;
+    public Ghour() {
+        livelMin = 4;
+        livelMax = 5;
     }
-
-    /*public Skeleton(){
-        Enemy enemy = new Skeleton(name, 15);
-    }
-
-    public Skeleton(String name, long healt){
-        this.name = name;
-        this.healt = healt;
-    }*/
     public String getName() {
         return name;
     }
@@ -59,7 +59,7 @@ public class SkeletonArcher extends Enemy{
 
     @Override
     public long doDefend() {
-        return Math.round(Math.random() * (9 - 3) + 1);
+        return Math.round(Math.random() * (6 - 1) + 1);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class SkeletonArcher extends Enemy{
     }
 
     public long setDamageOutput() {
-        return Math.round(Math.random() * (7 - 5) + 5);
+        return Math.round(Math.random() * (12 - 5) + 5);
     }
 
     public boolean isAlive() {
@@ -79,5 +79,4 @@ public class SkeletonArcher extends Enemy{
         }
         return false;
     }
-
 }

@@ -1,23 +1,16 @@
 package model.enemies;
-
-public class SkeletonArcher extends Enemy{
-    private String name = "Skeleton Archer";
-    private long healt = 12;
+//Gli hobgoblin sono grandi goblinoidi con la pelle arancione scuro o rosso-arancio.
+// Un hobgoblin misura la virtù in base alla forza fisica e all'abilità marziale,
+// non curandosi di nient'altro che dell'abilità e dell'astuzia in battaglia.
+public class Hobgoblin extends Enemy{
+    private String name = "Hobgoblin";
+    private long healt = 35;
     private long damage;
 
-    public SkeletonArcher() {
-        livelMin = 1;
-        livelMax = 1;
+    public Hobgoblin() {
+        livelMin = 3;
+        livelMax = 4;
     }
-
-    /*public Skeleton(){
-        Enemy enemy = new Skeleton(name, 15);
-    }
-
-    public Skeleton(String name, long healt){
-        this.name = name;
-        this.healt = healt;
-    }*/
     public String getName() {
         return name;
     }
@@ -59,7 +52,7 @@ public class SkeletonArcher extends Enemy{
 
     @Override
     public long doDefend() {
-        return Math.round(Math.random() * (9 - 3) + 1);
+        return Math.round(Math.random() * (6 - 1) + 1);
     }
 
     @Override
@@ -68,7 +61,7 @@ public class SkeletonArcher extends Enemy{
     }
 
     public long setDamageOutput() {
-        return Math.round(Math.random() * (7 - 5) + 5);
+        return Math.round(Math.random() * (10 - 6) + 6);
     }
 
     public boolean isAlive() {
@@ -79,5 +72,4 @@ public class SkeletonArcher extends Enemy{
         }
         return false;
     }
-
 }

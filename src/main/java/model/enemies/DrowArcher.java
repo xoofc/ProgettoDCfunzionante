@@ -1,23 +1,18 @@
 package model.enemies;
 
-public class SkeletonArcher extends Enemy{
-    private String name = "Skeleton Archer";
-    private long healt = 12;
+public class DrowArcher extends Enemy{
+    private String name = "Drow Archer";
+
+    private long healt = 15;
+
     private long damage;
 
-    public SkeletonArcher() {
-        livelMin = 1;
-        livelMax = 1;
+    public DrowArcher() {
+        livelMin = 2;
+        livelMax = 3;
     }
 
-    /*public Skeleton(){
-        Enemy enemy = new Skeleton(name, 15);
-    }
 
-    public Skeleton(String name, long healt){
-        this.name = name;
-        this.healt = healt;
-    }*/
     public String getName() {
         return name;
     }
@@ -58,8 +53,8 @@ public class SkeletonArcher extends Enemy{
     }
 
     @Override
-    public long doDefend() {
-        return Math.round(Math.random() * (9 - 3) + 1);
+    public long doDefend(){
+        return Math.round(Math.random() * (10 - 1) + 1);
     }
 
     @Override
@@ -79,5 +74,4 @@ public class SkeletonArcher extends Enemy{
         }
         return false;
     }
-
 }

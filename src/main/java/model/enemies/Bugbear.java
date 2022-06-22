@@ -1,23 +1,15 @@
 package model.enemies;
 
-public class SkeletonArcher extends Enemy{
-    private String name = "Skeleton Archer";
-    private long healt = 12;
+//creatura leggendaria o un tipo di hobgoblin paragonabile all'uomo nero e ad altre creature del folklore
+public class Bugbear extends Enemy {
+    private String name = "Bugbear";
+    private long healt = 35;
     private long damage;
 
-    public SkeletonArcher() {
-        livelMin = 1;
-        livelMax = 1;
+    public Bugbear() {
+        livelMin = 2;
+        livelMax = 3;
     }
-
-    /*public Skeleton(){
-        Enemy enemy = new Skeleton(name, 15);
-    }
-
-    public Skeleton(String name, long healt){
-        this.name = name;
-        this.healt = healt;
-    }*/
     public String getName() {
         return name;
     }
@@ -59,7 +51,7 @@ public class SkeletonArcher extends Enemy{
 
     @Override
     public long doDefend() {
-        return Math.round(Math.random() * (9 - 3) + 1);
+        return Math.round(Math.random() * (5 - 1) + 1);
     }
 
     @Override
@@ -68,7 +60,7 @@ public class SkeletonArcher extends Enemy{
     }
 
     public long setDamageOutput() {
-        return Math.round(Math.random() * (7 - 5) + 5);
+        return Math.round(Math.random() * (12 - 5) + 5);
     }
 
     public boolean isAlive() {
@@ -79,5 +71,4 @@ public class SkeletonArcher extends Enemy{
         }
         return false;
     }
-
 }

@@ -35,13 +35,21 @@ public class Dungeon {
         this.enemies = enemies;
     }
 
+    //Crea lista di tutti i nemici
     public void allEnemies() {
         enemies.add(new Skeleton());
         enemies.add(new Slime());
         enemies.add(new Mugger());
         enemies.add(new Witch());
+        enemies.add(new Goblin());
+        enemies.add(new Bugbear());
+        enemies.add(new DrowArcher());
+        enemies.add(new Ghour());
+        enemies.add(new Goblin());
+        enemies.add(new Hobgoblin());
     }
 
+    //Genera una lista di nemici del piano dove si trova il player
     public ArrayList<Enemy> generateEnemiesList(int livelloPiano){
         ArrayList<Enemy>floorEnemies=new ArrayList<>();
         allEnemies();
@@ -52,6 +60,7 @@ public class Dungeon {
         return floorEnemies;
     }
 
+    //Genera una room con i nemici random
     public Room generateRoom(Character character, ArrayList<Enemy> floorEnemies){
         Random random =new Random();
         ArrayList <Enemy> enemies=new ArrayList<>();
