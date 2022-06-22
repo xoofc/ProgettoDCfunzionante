@@ -6,6 +6,26 @@ public class Bugbear extends Enemy {
     private long healt = 35;
     private long damage;
 
+    private boolean hasStatus = false;
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
     public Bugbear() {
         livelMin = 2;
         livelMax = 3;

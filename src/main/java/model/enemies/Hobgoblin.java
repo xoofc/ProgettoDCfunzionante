@@ -7,6 +7,26 @@ public class Hobgoblin extends Enemy{
     private long healt = 35;
     private long damage;
 
+    private boolean hasStatus = false;
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
     public Hobgoblin() {
         livelMin = 3;
         livelMax = 4;

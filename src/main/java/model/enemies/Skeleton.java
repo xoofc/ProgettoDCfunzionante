@@ -6,9 +6,30 @@ public class Skeleton extends Enemy{
     private long healt = 15;
     private long damage;
 
+
     public Skeleton() {
         livelMin = 1;
         livelMax = 2;
+    }
+
+    private boolean hasStatus = false;
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
     }
 
     /*public Skeleton(){

@@ -12,6 +12,26 @@ public class Cerbero extends Enemy {
         livelMax = 5;
     }
 
+    private boolean hasStatus = false;
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
 
     public String getName() {
         return name;

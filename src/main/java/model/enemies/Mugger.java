@@ -6,20 +6,31 @@ public class Mugger extends Enemy{
     private long healt = 30;
     private long damage;
 
+    private boolean hasStatus = false;
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
     public Mugger() {
         livelMin = 1;
         livelMax = 1;
     }
 
-   /* public Mugger(){
-        Enemy enemy = new Mugger(name, 30);
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
     }
 
-    public Mugger(String name, long healt){
-        this.name = name;
-        this.healt = healt;
-    }*/
-
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
     public String getName() {
         return name;
     }

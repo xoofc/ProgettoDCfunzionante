@@ -9,6 +9,26 @@ public class Idra extends Enemy {
         livelMin = 6;
         livelMax = 7;
     }
+
+    private boolean hasStatus = false;
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
     public String getName() {
         return name;
     }

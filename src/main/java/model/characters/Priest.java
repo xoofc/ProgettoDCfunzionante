@@ -10,7 +10,7 @@ public class Priest implements Character{
     private long damage;
     private long gold;
 
-    private boolean hasStatus = false;
+
 
     boolean hasUsedSA = false;
 
@@ -24,6 +24,7 @@ public class Priest implements Character{
         this.hasUsedSA = hasUsedSA;
     }
 
+    private boolean hasStatus = false;
     public boolean getHasStatus() {
         return hasStatus;
     }

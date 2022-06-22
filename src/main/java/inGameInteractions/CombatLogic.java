@@ -13,6 +13,16 @@ public class CombatLogic {
 
     private int durataStatus = 0;
 
+    private int durataStatusToEnemy = 0;
+
+    public int getDurataStatusToEnemy() {
+        return durataStatusToEnemy;
+    }
+
+    public void setDurataStatusToEnemy(int durataStatusToEnemy) {
+        this.durataStatusToEnemy = durataStatusToEnemy;
+    }
+
     public final int DOT_DMG = 4;
 
     public int getDurataStatus() {
@@ -75,13 +85,27 @@ public class CombatLogic {
         character.setHealt(character.getHealt() - DOT_DMG);
     }
 
+    public void doDotToEnemy(Enemy enemy) {
+        enemy.setHealt(enemy.getHealt() - DOT_DMG);
+    }
+
     public void applyStatus(Character character, int durata) {
         durataStatus = durata;
         character.setHasStatus(true);
     }
 
+    public void applyStatusToEnemy(Enemy enemy, int durata) {
+        durataStatusToEnemy = durata;
+        enemy.setHasStatus(true);
+    }
+
+    public void FreezeEnemy(Enemy enemy){
+
+    }
+
     public boolean doSpecialAbility(Character character, Enemy enemy) {
         if (!character.getHasUsedSA()) {
+            //PER KNIGHT
             if (character instanceof Knight) {
                 long dmgOutput = character.doSpecialAbility();
                 if (dmgOutput >= enemy.getHealt()) {
@@ -96,10 +120,11 @@ public class CombatLogic {
                     System.out.println("Your special ability needs to recharge, wait until the next fight . . .");
                     return true;
                 }
-            } else if (character instanceof Mage){
+            } //PER MAGE
+            else if (character instanceof Mage){
                 int scelta = character.doSpecialAbility();
                 switch (scelta){
-                    case 0:
+                    case 0:  //FIREBALL
                         long dmgOutputFire = 20;
                         if (dmgOutputFire >= enemy.getHealt()){
                             System.out.println(character.getName() + " casted a Fireball against " + enemy.getName() + " for " + dmgOutputFire + " points of damage");
@@ -108,12 +133,13 @@ public class CombatLogic {
                             return true;
                         }  else if (dmgOutputFire < enemy.getHealt()) {
                             enemy.setHealt(enemy.getHealt() - dmgOutputFire);
+                            applyStatusToEnemy(enemy, 3);
                             System.out.println(character.getName() + " casted a Fireball against " + enemy.getName() + " for 20 points of damage, it now has " + enemy.getHealt() + "HP");
                             System.out.println("Your special ability needs to recharge, wait until the next fight . . .");
                         }
                         break;
 
-                    case 1:
+                    case 1: //FROSTBALL
                         long dmgOutputFrost = 25;
                         if (dmgOutputFrost >= enemy.getHealt()){
                             System.out.println(character.getName() + " casted a Frostball against " + enemy.getName() + " for " + dmgOutputFrost + " points of damage");

@@ -7,6 +7,26 @@ public class Arpia extends Enemy{
 
     private long damage;
 
+    private boolean hasStatus = false;
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
     public Arpia() {
         livelMin = 3;
         livelMax = 5;

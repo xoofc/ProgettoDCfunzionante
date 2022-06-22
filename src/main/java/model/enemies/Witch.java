@@ -13,6 +13,26 @@ public class Witch extends Enemy {
         livelMax = 3;
     }
 
+    private boolean hasStatus = false;
+    public boolean getHasStatus() {
+        return hasStatus;
+    }
+
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
+
 
     public String getName() {
         return name;

@@ -11,14 +11,25 @@ public class Slime extends Enemy{
         livelMax = 4;
     }
 
-   /* public Slime(){
-        Enemy enemy = new Slime(name, 40);
+    private boolean hasStatus = false;
+    public boolean getHasStatus() {
+        return hasStatus;
     }
 
-    public Slime(String name, long healt){
-        this.name = name;
-        this.healt = healt;
-    }*/
+    public void setHasStatus(boolean hasStatus) {
+        this.hasStatus = hasStatus;
+    }
+
+    private boolean isFrozen = false;
+    @Override
+    public boolean getIsFrozen() {
+        return isFrozen;
+    }
+
+    @Override
+    public void setFrozen(boolean frozen) {
+        this.isFrozen = frozen;
+    }
 
     public String getName() {
         return name;

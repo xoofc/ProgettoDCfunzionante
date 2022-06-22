@@ -53,7 +53,7 @@ public class RunGame {
                     player.setName(playerName);
 
                     //ArrayList<Enemy> allEnemies = new ArrayList<>();
-                   // allEnemies.add(new Skeleton());
+                    // allEnemies.add(new Skeleton());
                     // allEnemies.add(new Slime());
                     //allEnemies.add(new Mugger());
                     //allEnemies.add(new Witch());
@@ -64,7 +64,7 @@ public class RunGame {
                     while (!runAway) {
 
                         if (room.getEnemies().isEmpty()) {
-                            if (player.getHasStatus()){
+                            if (player.getHasStatus()) {
                                 player.setHasStatus(false);
                                 gameAction.setDurataStatus(0);
                             }
@@ -78,7 +78,7 @@ public class RunGame {
                             exit = true;
                             break;
                         }
-                            System.out.println("what are you gonna do: 0 run away, 1 attack, 2 special ability");
+                        System.out.println("what are you gonna do: 0 run away, 1 attack, 2 special ability");
 
                         switch (scanner.next()) {
 
@@ -94,14 +94,28 @@ public class RunGame {
                                 Enemy nemicoScelto = room.getEnemies().get(scelta - 1);
                                 gameAction.doAttack(room.getCharacter(), nemicoScelto);
 
-                                if (player.getHasStatus()){
-                                       if (gameAction.getDurataStatus() == 0){
-                                           player.setHasStatus(false);
-                                       }else {
-                                           gameAction.doDot(player);
-                                           gameAction.setDurataStatus(gameAction.getDurataStatus() - 1);
-                                           System.out.println( player.getName() + " received 5 points of damage and now has " + player.getHealt() + "HP");
-                                       }
+                                if (player.getHasStatus()) {
+                                    if (gameAction.getDurataStatus() == 0) {
+                                        player.setHasStatus(false);
+                                    } else {
+                                        gameAction.doDot(player);
+                                        gameAction.setDurataStatus(gameAction.getDurataStatus() - 1);
+                                        System.out.println(player.getName() + " received 4 points of damage and now has " + player.getHealt() + "HP");
+                                    }
+                                }
+
+                                for (Enemy enemy2 : room.getEnemies()
+                                ) {
+                                    if (enemy2.isAlive())
+                                        if (enemy2.getHasStatus()) {
+                                            if (gameAction.getDurataStatusToEnemy() == 0) {
+                                                enemy2.setHasStatus(false);
+                                            } else {
+                                                gameAction.doDotToEnemy(enemy2);
+                                                gameAction.setDurataStatusToEnemy(gameAction.getDurataStatusToEnemy() - 1);
+                                                System.out.println(enemy2.getName() + " received 4 points of damage and now has " + enemy2.getHealt() + "HP");
+                                            }
+                                        }
                                 }
 
                                 for (Enemy element : room.getEnemies()
@@ -118,7 +132,7 @@ public class RunGame {
                                 break;
 
                             case "2":
-                                if (player.getHasUsedSA()){
+                                if (player.getHasUsedSA()) {
                                     System.out.println("You've already used your special ability this combat, it needs to recharge");
                                     break;
                                 }
@@ -131,6 +145,31 @@ public class RunGame {
                                 int sceltaAbility = scanner.nextInt();
                                 Enemy nemicoSceltoAbility = room.getEnemies().get(sceltaAbility - 1);
                                 gameAction.doSpecialAbility(room.getCharacter(), nemicoSceltoAbility);
+
+                                if (player.getHasStatus()) {
+                                    if (gameAction.getDurataStatus() == 0) {
+                                        player.setHasStatus(false);
+                                    } else {
+                                        gameAction.doDot(player);
+                                        gameAction.setDurataStatus(gameAction.getDurataStatus() - 1);
+                                        System.out.println(player.getName() + " received 4 points of damage and now has " + player.getHealt() + "HP");
+                                    }
+                                }
+
+                                for (Enemy enemy2 : room.getEnemies()
+                                ) {
+                                    if (enemy2 != null)
+                                        if (enemy2.isAlive())
+                                            if (enemy2.getHasStatus()) {
+                                                if (gameAction.getDurataStatusToEnemy() == 0) {
+                                                    enemy2.setHasStatus(false);
+                                                } else {
+                                                    gameAction.doDotToEnemy(enemy2);
+                                                    gameAction.setDurataStatusToEnemy(gameAction.getDurataStatusToEnemy() - 1);
+                                                    System.out.println(enemy2.getName() + " received 4 points of damage and now has " + enemy2.getHealt() + "HP");
+                                                }
+                                            }
+                                }
 
                                 for (Enemy element : room.getEnemies()
                                 ) {
