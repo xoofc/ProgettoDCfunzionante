@@ -1,5 +1,7 @@
 package model.characters;
 
+import model.enemies.Enemy;
+
 public class Mage implements Character{
 
     private String name;
@@ -9,6 +11,18 @@ public class Mage implements Character{
     private long gold;
 
     private boolean hasStatus = false;
+
+    boolean hasUsedSA = false;
+
+
+    public boolean getHasUsedSA() {
+        return hasUsedSA;
+    }
+
+    @Override
+    public void setHasUsedSA(boolean hasUsedSA) {
+        this.hasUsedSA = hasUsedSA;
+    }
 
     public boolean getHasStatus() {
         return hasStatus;
@@ -67,8 +81,8 @@ public class Mage implements Character{
 
 
     @Override
-    public void doSpecialAbility() {
-
+    public int doSpecialAbility(Enemy enemy) {
+        return 0;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package model.characters;
 
+import model.enemies.Enemy;
+
 public interface Character {
 
      boolean getHasStatus();
@@ -14,8 +16,10 @@ public interface Character {
     long getDamage();
     void setDamage(long damage);
     long setDamageOutput();
-    void doSpecialAbility();
+    int doSpecialAbility(Enemy enemy);
     void useItem();
     void setGold(long gold);
     long getGold();
+    boolean getHasUsedSA();
+    void setHasUsedSA(boolean hasUsedSA);
 }

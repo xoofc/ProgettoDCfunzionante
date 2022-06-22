@@ -63,6 +63,7 @@ public class RunGame {
                                 player.setHasStatus(false);
                                 gameAction.setDurataStatus(0);
                             }
+                            player.setHasUsedSA(false);
                             dungeon.getFloor().levelControl();
                             System.out.println("You killed everyone in the room and moved on to the next one");
                             room = dungeon.generateRoom(player, dungeon.generateEnemiesList(dungeon.getFloor().getLevelFloor()));
@@ -72,7 +73,7 @@ public class RunGame {
                             exit = true;
                             break;
                         }
-                            System.out.println("what are you gonna do: 0 run away, 1 attack");
+                            System.out.println("what are you gonna do: 0 run away, 1 attack, 2 special ability");
 
                         switch (scanner.next()) {
 
@@ -111,6 +112,34 @@ public class RunGame {
                                 }
                                 break;
 
+                            case "2":
+                                if (player.getHasUsedSA()){
+                                    System.out.println("You've already used your special ability this combat, it needs to recharge");
+                                    break;
+                                }
+                                System.out.println("choose the target of your attack: ");
+
+                                for (int i = 0; i < room.getEnemies().size(); i++) {
+                                    System.out.println(i + 1 + " " + room.getEnemies().get(i).getName() + " " + room.getEnemies().get(i).getHealt() + "HP");
+                                }
+
+                                int sceltaAbility = scanner.nextInt();
+                                Enemy nemicoSceltoAbility = room.getEnemies().get(sceltaAbility - 1);
+                                gameAction.doSpecialAbility(room.getCharacter(), nemicoSceltoAbility);
+
+                                for (Enemy element : room.getEnemies()
+                                ) {
+                                    if (element != nemicoSceltoAbility) {
+                                        gameAction.enemyDoAttack(element, room.getCharacter());
+                                    }
+                                }
+
+                                for (int i = 0; i < room.getEnemies().size(); i++) {
+                                    if (!room.getEnemies().get(i).isAlive()) {
+                                        room.getEnemies().remove(i);
+                                    }
+                                }
+                                break;
 
                             case "0":
                                 runAway = true;

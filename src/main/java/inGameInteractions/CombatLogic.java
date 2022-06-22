@@ -78,4 +78,25 @@ public class CombatLogic {
         durataStatus = durata;
         character.setHasStatus(true);
     }
+
+    public boolean doSpecialAbility(Character character, Enemy enemy){
+        if (!character.getHasUsedSA()){
+            long dmgOutput = character.doSpecialAbility(enemy);
+            if (dmgOutput >= enemy.getHealt()){
+                System.out.println(character.getName() + " attacked " + enemy.getName() + " for " + dmgOutput + " points of damage");
+                System.out.println("You've defeated " + enemy.getName() + "!");
+                enemy.setHealt(0);
+                return true;
+            } else if (dmgOutput < enemy.getHealt()) {
+                enemy.setHealt(enemy.getHealt() - dmgOutput);
+                System.out.println(character.getName() + " attacked " + enemy.getName() + " for " + dmgOutput + " points of damage");
+                System.out.println(enemy.getName() + " now has " + enemy.getHealt() + "HP");
+                System.out.println("Your special ability needs to recharge, wait until the next fight . . .");
+                return true;
+            }
+        } else {
+            return false;
+        }
+        return false;
+    }
 }

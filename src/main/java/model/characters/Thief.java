@@ -1,13 +1,25 @@
 package model.characters;
 
+import model.enemies.Enemy;
+
 public class Thief implements Character{
     private String name;
     private long healt = 80;
-    private long mana = 3;
+    private long mana = 4;
     private long damage;
     private long gold;
-
     private boolean hasStatus = false;
+    boolean hasUsedSA = false;
+
+    @Override
+    public boolean getHasUsedSA() {
+        return hasUsedSA;
+    }
+
+    @Override
+    public void setHasUsedSA(boolean hasUsedSA) {
+        this.hasUsedSA = hasUsedSA;
+    }
 
     public boolean getHasStatus() {
         return hasStatus;
@@ -72,8 +84,8 @@ public class Thief implements Character{
     }
 
     @Override
-    public void doSpecialAbility() {
-
+    public int doSpecialAbility(Enemy enemy) {
+        return 0;
     }
 
     @Override
