@@ -1,18 +1,14 @@
 package model.enemies;
 
-public class Cerbero extends Enemy {
-    private String name = "Cerbero";
-
-    private long healt = 90;
-
+public class Behir extends Enemy{
+    private String name = "Behir";
+    private long healt = 172;
     private long damage;
 
-    public Cerbero() {
-        livelMin = 4;
-        livelMax = 5;
+    public Behir() {
+        livelMin = 6;
+        livelMax = 7;
     }
-
-
     public String getName() {
         return name;
     }
@@ -52,9 +48,9 @@ public class Cerbero extends Enemy {
 
     }
 
-    @Override // la strega è già abbastanza rotta, non deve difendersi
-    public long doDefend(){
-        return 0;
+    @Override
+    public long doDefend() {
+        return Math.round(Math.random() * (5 - 1) + 1);
     }
 
     @Override
@@ -63,7 +59,7 @@ public class Cerbero extends Enemy {
     }
 
     public long setDamageOutput() {
-        return Math.round(Math.random() * (14 - 1) + 1);
+        return Math.round(Math.random() * (22 - 17) + 1);
     }
 
     public boolean isAlive() {
@@ -74,6 +70,4 @@ public class Cerbero extends Enemy {
         }
         return false;
     }
-
 }
-

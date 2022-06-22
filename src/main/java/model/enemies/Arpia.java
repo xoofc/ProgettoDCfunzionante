@@ -1,14 +1,14 @@
 package model.enemies;
 
-public class Cerbero extends Enemy {
-    private String name = "Cerbero";
+public class Arpia extends Enemy{
+    private String name = "Arpia";
 
-    private long healt = 90;
+    private long healt = 38;
 
     private long damage;
 
-    public Cerbero() {
-        livelMin = 4;
+    public Arpia() {
+        livelMin = 3;
         livelMax = 5;
     }
 
@@ -63,7 +63,7 @@ public class Cerbero extends Enemy {
     }
 
     public long setDamageOutput() {
-        return Math.round(Math.random() * (14 - 1) + 1);
+        return Math.round(Math.random() * (6 - 1) + 1);
     }
 
     public boolean isAlive() {
@@ -74,6 +74,4 @@ public class Cerbero extends Enemy {
         }
         return false;
     }
-
 }
-
