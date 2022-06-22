@@ -37,17 +37,24 @@ public class Dungeon {
 
     //Crea lista di tutti i nemici
     public void allEnemies() {
-        enemies.add(new Skeleton());
-        enemies.add(new Slime());
-        enemies.add(new Mugger());
-        enemies.add(new Witch());
-        enemies.add(new SkeletonArcher());
+        enemies.add(new Arpia());
+        enemies.add(new Behir());
         enemies.add(new Bugbear());
+        enemies.add(new Centauro());
+        enemies.add(new Cerbero());
+        enemies.add(new Coboldo());
         enemies.add(new DrowArcher());
         enemies.add(new Ghour());
         enemies.add(new Goblin());
         enemies.add(new Hobgoblin());
+        enemies.add(new Idra());
         enemies.add(new InfernalDog());
+        enemies.add(new Mugger());
+        enemies.add(new Orco());
+        enemies.add(new Skeleton());
+        enemies.add(new SkeletonArcher());
+        enemies.add(new Slime());
+        enemies.add(new Witch());
     }
 
     //Genera una lista di nemici del piano dove si trova il player

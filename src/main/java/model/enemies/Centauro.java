@@ -1,20 +1,21 @@
 package model.enemies;
 
-public class Cerbero extends Enemy {
-    private String name = "Cerbero";
+public class Centauro extends Enemy{
+    private String name = "Centauro";
 
-    private long healt = 90;
+    private long healt = 45;
 
     private long damage;
-
-    public Cerbero() {
-        livelMin = 4;
-        livelMax = 5;
-    }
 
     private boolean hasStatus = false;
 
     private boolean isFrozen = false;
+
+    public Centauro() {
+        livelMin = 1;
+        livelMax = 3;
+    }
+
     @Override
     public boolean getIsFrozen() {
         return isFrozen;
@@ -31,7 +32,6 @@ public class Cerbero extends Enemy {
     public void setHasStatus(boolean hasStatus) {
         this.hasStatus = hasStatus;
     }
-
 
     public String getName() {
         return name;
@@ -83,7 +83,7 @@ public class Cerbero extends Enemy {
     }
 
     public long setDamageOutput() {
-        return Math.round(Math.random() * (14 - 1) + 1);
+        return Math.round(Math.random() * (11 - 6) + 1);
     }
 
     public boolean isAlive() {
@@ -94,6 +94,4 @@ public class Cerbero extends Enemy {
         }
         return false;
     }
-
 }
-
