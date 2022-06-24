@@ -51,6 +51,7 @@ public class Dungeon {
         enemies.add(new InfernalDog());
         enemies.add(new Mugger());
         enemies.add(new Orco());
+        enemies.add(new Sahuagin());
         enemies.add(new Skeleton());
         enemies.add(new SkeletonArcher());
         enemies.add(new Slime());

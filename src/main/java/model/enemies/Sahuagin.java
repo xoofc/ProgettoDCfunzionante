@@ -6,8 +6,8 @@ public class Sahuagin extends Enemy{
     private long damage;
 
     public Sahuagin() {
-        livelMin = 25;
-        livelMax = 30;
+        livelMin = 1;
+        livelMax = 3;
     }
 
     private boolean hasStatus = false;
