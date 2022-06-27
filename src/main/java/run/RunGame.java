@@ -69,9 +69,12 @@ public class RunGame {
                                 gameAction.setDurataStatus(0);
                             }
                             player.setHasUsedSA(false);
-                            dungeon.getFloor().levelControl();
                             System.out.println("You killed everyone in the room and moved on to the next one");
-                            room = dungeon.generateRoom(player, dungeon.generateEnemiesList(dungeon.getFloor().getLevelFloor()));
+                            if(dungeon.getFloor().levelBossControl()){
+                                room = dungeon.generateRoomBoos(player,dungeon.getFloor().getLevelFloor());
+                            }else {
+                                room = dungeon.generateRoom(player, dungeon.generateEnemiesList(dungeon.getFloor().getLevelFloor()));
+                            }
                         } else if (!room.getCharacter().isAlive()) {
                             System.out.println("The enemies drag your lifeless body out of the dungeon . . .");
                             runAway = true;

@@ -8,6 +8,7 @@ public class AncientRedDragon extends Enemy{
     public AncientRedDragon() {
         livelMin = 25;
         livelMax = 30;
+        livelBoss = 1;
     }
 
     private boolean hasStatus = false;

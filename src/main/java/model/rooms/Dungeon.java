@@ -11,6 +11,7 @@ public class Dungeon {
     private Collection<Room> roomList = new ArrayList<>();
 
     private ArrayList<Enemy> enemies =new ArrayList<>();
+    private ArrayList<Enemy> boss=new ArrayList<>();
 
     private Floor floor;
 
@@ -33,6 +34,14 @@ public class Dungeon {
 
     public void setEnemies(ArrayList<Enemy> enemies) {
         this.enemies = enemies;
+    }
+
+    public ArrayList<Enemy> getBoss() {
+        return boss;
+    }
+
+    public void setBoss(ArrayList<Enemy> boss) {
+        this.boss = boss;
     }
 
     //Crea lista di tutti i nemici
@@ -58,6 +67,10 @@ public class Dungeon {
         enemies.add(new Witch());
     }
 
+    public void allBoss(){
+        boss.add(new AncientRedDragon());
+    }
+
     //Genera una lista di nemici del piano dove si trova il player
     public ArrayList<Enemy> generateEnemiesList(int livelloPiano){
         ArrayList<Enemy>floorEnemies=new ArrayList<>();
@@ -79,6 +92,17 @@ public class Dungeon {
             enemies.add(floorEnemies.get(ranNemico).clone());
         }
         Room room=new Room(character,enemies);
+        return room;
+    }
+
+    public Room generateRoomBoos(Character character,int livelloPiano){
+        ArrayList <Enemy> boss=new ArrayList<>();
+        allBoss();
+        for (Enemy enemy:this.boss) {
+            if(enemy.livelBoss==livelloPiano)
+                boss.add(enemy);
+        }
+        Room room=new Room(character,boss);
         return room;
     }
 

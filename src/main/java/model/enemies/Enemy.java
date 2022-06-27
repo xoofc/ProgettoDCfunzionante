@@ -5,6 +5,7 @@ public abstract class  Enemy implements Cloneable{
 
     public int livelMin;
     public int livelMax;
+    public int livelBoss;
 
 
     abstract public boolean getIsFrozen();
