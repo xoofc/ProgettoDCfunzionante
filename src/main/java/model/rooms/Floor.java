@@ -3,7 +3,7 @@ package model.rooms;
 public class Floor {
 
     public static int levelFloor;
-    public static int nRoom = 8;
+    public static int nRoom = 9;
 
     public Floor(){
         levelFloor=1;

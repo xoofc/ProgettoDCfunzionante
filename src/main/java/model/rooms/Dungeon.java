@@ -18,6 +18,8 @@ public class Dungeon {
 
     public Dungeon(){
         floor=new Floor();
+        allEnemies();
+        allBoss();
     }
 
     public Floor getFloor() {
@@ -47,7 +49,6 @@ public class Dungeon {
     //Crea lista di tutti i nemici
     public void allEnemies() {
         enemies.add(new Arpia());
-        enemies.add(new Behir());
         enemies.add(new Bugbear());
         enemies.add(new Centauro());
         enemies.add(new Cerbero());
@@ -56,7 +57,6 @@ public class Dungeon {
         enemies.add(new Ghour());
         enemies.add(new Goblin());
         enemies.add(new Hobgoblin());
-        enemies.add(new Idra());
         enemies.add(new InfernalDog());
         enemies.add(new Mugger());
         enemies.add(new Orco());
@@ -69,12 +69,13 @@ public class Dungeon {
 
     public void allBoss(){
         boss.add(new AncientRedDragon());
+        boss.add(new Idra());
+        boss.add(new Behir());
     }
 
     //Genera una lista di nemici del piano dove si trova il player
     public ArrayList<Enemy> generateEnemiesList(int livelloPiano){
         ArrayList<Enemy>floorEnemies=new ArrayList<>();
-        allEnemies();
         for (Enemy enemy:enemies ) {
             if(enemy.livelMin<=livelloPiano&&enemy.livelMax>=livelloPiano)
                 floorEnemies.add(enemy);
@@ -97,7 +98,6 @@ public class Dungeon {
 
     public Room generateRoomBoos(Character character,int livelloPiano){
         ArrayList <Enemy> boss=new ArrayList<>();
-        allBoss();
         for (Enemy enemy:this.boss) {
             if(enemy.livelBoss==livelloPiano)
                 boss.add(enemy);

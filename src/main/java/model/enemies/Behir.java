@@ -6,8 +6,9 @@ public class Behir extends Enemy{
     private long damage;
 
     public Behir() {
-        livelMin = 6;
-        livelMax = 7;
+//        livelMin = 6;
+//        livelMax = 7;
+        livelBoss =1;
     }
 
     private boolean hasStatus = false;

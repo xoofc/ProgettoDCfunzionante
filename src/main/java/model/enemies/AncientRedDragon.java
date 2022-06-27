@@ -6,9 +6,9 @@ public class AncientRedDragon extends Enemy{
     private long damage;
 
     public AncientRedDragon() {
-        livelMin = 25;
-        livelMax = 30;
-        livelBoss = 1;
+//        livelMin = 25;
+//        livelMax = 30;
+        livelBoss = 3;
     }
 
     private boolean hasStatus = false;

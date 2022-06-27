@@ -6,8 +6,9 @@ public class Idra extends Enemy {
     private long damage;
 
     public Idra() {
-        livelMin = 6;
-        livelMax = 7;
+//        livelMin = 6;
+//        livelMax = 7;
+        livelBoss =2;
     }
 
     private boolean hasStatus = false;

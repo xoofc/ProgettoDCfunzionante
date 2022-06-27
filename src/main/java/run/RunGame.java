@@ -6,6 +6,7 @@ import model.characters.Knight;
 import model.characters.Mage;
 import model.enemies.*;
 import model.rooms.Dungeon;
+import model.rooms.Floor;
 import model.rooms.Room;
 
 import java.util.ArrayList;
@@ -60,10 +61,12 @@ public class RunGame {
 
                     boolean runAway = false;
                     Room room = dungeon.generateRoom(player, dungeon.generateEnemiesList(dungeon.getFloor().getLevelFloor()));
-
+                    boolean uplevel = false;
                     while (!runAway) {
-
                         if (room.getEnemies().isEmpty()) {
+                            if(uplevel){
+                                Floor.levelFloor=Floor.levelFloor+1;
+                            }
                             if (player.getHasStatus()) {
                                 player.setHasStatus(false);
                                 gameAction.setDurataStatus(0);
@@ -72,8 +75,10 @@ public class RunGame {
                             System.out.println("You killed everyone in the room and moved on to the next one");
                             if(dungeon.getFloor().levelBossControl()){
                                 room = dungeon.generateRoomBoos(player,dungeon.getFloor().getLevelFloor());
+                                uplevel=true;
                             }else {
                                 room = dungeon.generateRoom(player, dungeon.generateEnemiesList(dungeon.getFloor().getLevelFloor()));
+                                uplevel=false;
                             }
                         } else if (!room.getCharacter().isAlive()) {
                             System.out.println("The enemies drag your lifeless body out of the dungeon . . .");
