@@ -1,16 +1,12 @@
 package run;
 
 import inGameInteractions.CombatLogic;
+import model.characters.*;
 import model.characters.Character;
-import model.characters.Knight;
-import model.characters.Mage;
 import model.enemies.*;
 import model.rooms.Dungeon;
 import model.rooms.Floor;
 import model.rooms.Room;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Scanner;
 
 public class RunGame {
@@ -23,6 +19,7 @@ public class RunGame {
         boolean exit = false;
         Dungeon dungeon = new Dungeon();
         int nTurno = 1;
+        boolean checkCharacterChoice = true;
 
         while (!exit) {
 
@@ -36,18 +33,33 @@ public class RunGame {
                 case "1":
                     System.out.println("I knew you had it in you, i've seen it in your eyes" +
                             ", now now . . . tell me about yourself (Choose a class: 0 Knight, 1 Mage, 2 Thief, 3 Priest)");
-                    switch (scanner.next()) {
-                        case "0":
-                            player = new Knight();
-                            break;
 
-                        case "1":
-                            player = new Mage();
-                            break;
+                    while(checkCharacterChoice) {
+                        switch (scanner.next()) {
+                            case "0":
+                                player = new Knight();
+                                checkCharacterChoice = false;
+                                break;
 
-                        default:
-                            System.out.println("Really?!");
-                            break;
+                            case "1":
+                                player = new Mage();
+                                checkCharacterChoice = false;
+                                break;
+
+                            case "2":
+                                player = new Thief();
+                                checkCharacterChoice = false;
+                                break;
+
+                            case "3":
+                                player = new Priest();
+                                checkCharacterChoice = false;
+                                break;
+
+                            default:
+                                System.out.println("Really?!");
+                                break;
+                        }
                     }
                     System.out.println("Name your character");
                     String playerName = scanner.next();
@@ -92,14 +104,34 @@ public class RunGame {
 
                             case "1":
 
-                                System.out.println("choose the target of your attack: ");
-
-                                for (int i = 0; i < room.getEnemies().size(); i++) {
-                                    System.out.println(i + 1 + " " + room.getEnemies().get(i).getName() + " " + room.getEnemies().get(i).getHealt() + "HP");
+                                // Aggiunta e modifica per avere codice più robusto
+                                String sceltaString = null;
+                                int scelta;
+                                boolean sceltaChecker = true;
+                                Enemy nemicoScelto = null;
+                                while (sceltaChecker) {
+                                    try {
+                                        System.out.println("choose the target of your attack: ");
+                                        for (int i = 0; i < room.getEnemies().size(); i++) {
+                                            System.out.println(i + 1 + " " + room.getEnemies().get(i).getName() + " " + room.getEnemies().get(i).getHealt() + "HP");
+                                        }
+                                        sceltaString = scanner.next();
+                                        scelta = Integer.parseInt(sceltaString);
+                                        while (scelta > room.getEnemies().size()) {
+                                            System.out.println("You have to choose a valid target of your attack.");
+                                            System.out.println("Choose the target of your attack: ");
+                                            for (int i = 0; i < room.getEnemies().size(); i++) {
+                                                System.out.println(i + 1 + " " + room.getEnemies().get(i).getName() + " " + room.getEnemies().get(i).getHealt() + "HP");
+                                            }
+                                            sceltaString = scanner.next();
+                                            scelta = Integer.parseInt(sceltaString);
+                                        }
+                                        sceltaChecker = false;
+                                        nemicoScelto = room.getEnemies().get(scelta - 1);
+                                    } catch (NumberFormatException numberFormatException) {
+                                        System.out.println("This is not a number!");
+                                    }
                                 }
-
-                                int scelta = scanner.nextInt();
-                                Enemy nemicoScelto = room.getEnemies().get(scelta - 1);
                                 gameAction.doAttack(room.getCharacter(), nemicoScelto);
 
                                 if (player.getHasStatus()) {
